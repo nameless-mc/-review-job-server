@@ -32,8 +32,8 @@ async def signin(res: Response, data: SigninSchema, db: Session = Depends(get_db
     if(not check_password(data.password, user)):
         print("invalid password")
         return invalidParameterError
-    res.set_cookie("token", user.password)
-    res.set_cookie("id", user.id)
+    res.set_cookie("token", user.password, samesite="none", secure=True)
+    res.set_cookie("id", user.id, samesite="none", secure=True)
 
 
 @router.post("/api/signout")
@@ -57,8 +57,8 @@ async def signup(res: Response, data: SignupSchema, db: Session = Depends(get_db
     )
     db.add(user)
     db.commit()
-    res.set_cookie("token", password)
-    res.set_cookie("id", id)
+    res.set_cookie("token", password, samesite="none", secure=True)
+    res.set_cookie("id", id, samesite="none", secure=True)
 
 
 @router.get("/api/check_session")
