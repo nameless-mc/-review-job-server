@@ -14,4 +14,4 @@ class Review(Base):
     note = Column('note', String(1000), nullable=False, index=True)
     category_id = Column("category_id", BigInteger, ForeignKey(
         "categories.id", onupdate='CASCADE', ondelete='CASCADE'), nullable=False, index=True)
-    star = Column('id', BigInteger, nullable=False, index=True)
+    star = Column('star', BigInteger, nullable=False, index=True)
