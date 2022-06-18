@@ -143,3 +143,7 @@ cdk.context.json
 .vscode
 
 docker/db/data
+
+config.ini
+
+secrets/

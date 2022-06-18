@@ -1,0 +1,10 @@
+version: "3"
+services:
+  web:
+    build: ./web-api
+    ports:
+      - 8081:8081
+    volumes:
+      - type: bind
+        source: ./web-api
+        target: /app
