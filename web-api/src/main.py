@@ -6,6 +6,7 @@ from config import web_api_config
 import sys
 import model
 import uvicorn
+from router.signin import router as signinRouter
 sys.dont_write_bytecode = True
 
 
@@ -31,16 +32,13 @@ app.add_middleware(
 async def request_validation_handler(req, exc):
     return JSONResponse(status_code=400, content={"code": "InvalidParameter"})
 
-
-@app.get("/")
-def read_root(res: Response):
-    res.set_cookie(key="pass", value="pass0001")
-    return {"Hello": "World"}
+app.include_router(signinRouter)
 
 
 def main():
     uvicorn.run('main:app',
                 port=int(web_api_config.get("PORT")),
+                host=web_api_config.get("HOST"),
                 reload=True,
                 ssl_keyfile=web_api_config.get("SSL_KEY"),
                 ssl_certfile=web_api_config.get("SSL_CRT"))
