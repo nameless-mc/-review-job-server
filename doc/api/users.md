@@ -10,8 +10,8 @@ POST /api/signin
 
 ```javascript
 {
-    "id": number,
-    "pass": string
+    "id": string,
+    "password": string
 }
 ```
 
@@ -42,8 +42,8 @@ POST /api/signin
 
 ```javascript
 {
-    "id": number,
-    "pass": string
+    "id": string,
+    "password": string
 }
 ```
 
@@ -78,8 +78,8 @@ POST /api/signup
 
 ```javascript
 {
-    "id": number,
-    "pass": string,
+    "id": string,
+    "password": string,
     "name": string
 }
 ```
@@ -112,8 +112,8 @@ POST /api/signin
 
 ```javascript
 {
-    "id": number,
-    "pass": string
+    "id": string,
+    "password": string
 }
 ```
 
