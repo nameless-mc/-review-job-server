@@ -4,5 +4,5 @@
 
 # ドキュメント
 
-<!-- - [API ドキュメント](./doc/api/api.md) -->
+- [API ドキュメント](./doc/api/api.md)
 <!-- - [DB ドキュメント](./doc/db/db.md) -->
