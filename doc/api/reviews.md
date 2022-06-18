@@ -1,9 +1,9 @@
-# comments API
+# reviews API
 
-## コメント一覧取得 API
+## レビュー一覧取得 API
 
 ```
-GET /api/groups/{group_id}/comments
+GET /api/groups/{group_id}/reviews
         ?q=&category=&sort_target=&order=
 ```
 
@@ -18,20 +18,20 @@ GET /api/groups/{group_id}/comments
 
 #### 成功時
 
-| param                    | type   | description |
-| ------------------------ | ------ | ----------- |
-| comments[].id            | number | レビュー ID |
-| comments[].name          | string | 店舗名      |
-| comments[].note          | string | 内容        |
-| comments[].user_id       | number | ユーザー ID |
-| comments[].user_name     | string | ユーザー名  |
-| comments[].category_name | string | カテゴリ名  |
-| comments[].category_id   | name   | カテゴリ ID |
-| comments[].star          | number | スター数    |
+| param                   | type   | description |
+| ----------------------- | ------ | ----------- |
+| reviews[].id            | number | レビュー ID |
+| reviews[].name          | string | 店舗名      |
+| reviews[].note          | string | 内容        |
+| reviews[].user_id       | number | ユーザー ID |
+| reviews[].user_name     | string | ユーザー名  |
+| reviews[].category_name | string | カテゴリ名  |
+| reviews[].category_id   | name   | カテゴリ ID |
+| reviews[].star          | number | スター数    |
 
 ```javascript
 {
-    "comments": [
+    "reviews": [
         {
             "id": number,
             "name": string,
@@ -47,10 +47,10 @@ GET /api/groups/{group_id}/comments
 }
 ```
 
-## コメント取得 API
+## レビュー取得 API
 
 ```
-GET /api/groups/{group_id}/comments/{comment_id}
+GET /api/groups/{group_id}/reviews/{review_id}
 ```
 
 ### レスポンス
@@ -81,10 +81,10 @@ GET /api/groups/{group_id}/comments/{comment_id}
 }
 ```
 
-## コメント投稿 API
+## レビュー投稿 API
 
 ```
-POST /api/groups/{group_id}/comments
+POST /api/groups/{group_id}/reviews
 ```
 
 | param       | type   | description |
@@ -130,4 +130,3 @@ POST /api/groups/{group_id}/comments
     "star": number
 }
 ```
-

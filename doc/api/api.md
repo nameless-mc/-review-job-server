@@ -6,9 +6,9 @@
 
 ## [members API](./members.md)
 
-## [comments API](./comments.md)
+## [reviews API](./reviews.md)
 
-## カテゴリ一覧取得API
+## カテゴリ一覧取得 API
 
 ## グループ取得 API
 
@@ -20,10 +20,10 @@ GET /api/categories
 
 #### 成功時
 
-| param | type   | description |
-| ----- | ------ | ----------- |
-| categories[].id    | number | カテゴリ ID |
-| categories[].name  | string | カテゴリ名  |
+| param             | type   | description |
+| ----------------- | ------ | ----------- |
+| categories[].id   | number | カテゴリ ID |
+| categories[].name | string | カテゴリ名  |
 
 ```javascript
 {
