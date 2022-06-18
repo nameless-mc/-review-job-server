@@ -22,7 +22,6 @@ async def get_groups(token: Union[str, None] = Cookie(None), id: Union[str, None
         Group, Join.group_id == Group.id
     ).filter(Join.user_id == user.id).order_by(asc(Group.name)).all()
 
-    print(groups)
     def query_to_result(query_result):
         return{
             "id": query_result.id,

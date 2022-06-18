@@ -61,6 +61,6 @@ async def signup(res: Response, data: SignupSchema, db: Session = Depends(get_db
     res.set_cookie("id", id)
 
 
-@router.get("/management/check_session")
+@router.get("/api/check_session")
 async def check_session(token: Union[str, None] = Cookie(None), id: Union[str, None] = Cookie(None), db: Session = Depends(get_db)):
     return {"token": token, "id": id, "is_signin": get_user(token, id, db) is not None}
