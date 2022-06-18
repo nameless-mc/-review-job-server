@@ -1,9 +1,7 @@
 import hashlib
-
-from fastapi import Depends
+from typing import Optional
 import config
 from model import User
-from db import get_db
 from sqlalchemy.orm import Session
 
 
@@ -19,7 +17,7 @@ def check_token(token, user: User):
     return token == user.password
 
 
-def get_user(token, id, db: Session):
+def get_user(token, id, db: Session) -> Optional[User]:
     user = db.get(User, id)
     if(user is not None and check_token(token, user)):
         return user

@@ -3,6 +3,15 @@ import time
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from config import db_config
+
+# SQLALCHEMY_DATABASE_URL = "mysql+mysqldb://{user}:{password}@{host}:{port}/{database}".format(
+#         user=db_config.get("DB_USER"),
+#         password=db_config.get("DB_PASSWORD"),
+#         host=db_config.get("DB_HOST"),
+#         port=db_config.get("DB_PORT"),
+#         database=db_config.get("DB_DATABASE")
+#     )
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///./db.sqlite3"
 

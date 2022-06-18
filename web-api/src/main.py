@@ -7,6 +7,7 @@ import sys
 import model
 import uvicorn
 from router.signin import router as signinRouter
+from router.groups import router as groupsRouter
 sys.dont_write_bytecode = True
 
 
@@ -33,6 +34,7 @@ async def request_validation_handler(req, exc):
     return JSONResponse(status_code=400, content={"code": "InvalidParameter"})
 
 app.include_router(signinRouter)
+app.include_router(groupsRouter)
 
 
 def main():
