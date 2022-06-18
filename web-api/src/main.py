@@ -8,6 +8,8 @@ import model
 import uvicorn
 from router.signin import router as signinRouter
 from router.groups import router as groupsRouter
+from router.categories import router as categoriesRouter
+from router.reviews import router as reviewsRouter
 sys.dont_write_bytecode = True
 
 
@@ -35,6 +37,8 @@ async def request_validation_handler(req, exc):
 
 app.include_router(signinRouter)
 app.include_router(groupsRouter)
+app.include_router(categoriesRouter)
+app.include_router(reviewsRouter)
 
 
 def main():
