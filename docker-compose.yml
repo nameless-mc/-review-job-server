@@ -1,0 +1,35 @@
+version: "3"
+services:
+  web:
+    build: ./web-api
+    ports:
+      - 8081:8081
+    volumes:
+      - type: bind
+        source: ./web-api
+        target: /app
+#     depends_on:
+#       - db
+#     networks:
+#       - review_job-network
+#   db:
+#     image: mysql:8.0
+#     platform: linux/x86_64
+#     volumes:
+#       - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+#       - ./docker/db/initdb.d:/docker-entrypoint-initdb.d
+#       - ./docker/db/data:/var/lib/mysql
+#     environment:
+#       - MYSQL_ROOT_PASSWORD=review_job
+#       - MYSQL_DATABASE=review_job
+#       - MYSQL_USER=review_job
+#       - MYSQL_PASSWORD=review_job
+#       - TZ=Asia/Tokyo
+#     ports:
+#       - 3306:3306
+#     networks:
+#       - review_job-network
+
+# networks:
+#   review_job-network:
+#     driver: bridge
