@@ -10,6 +10,8 @@ from router.signin import router as signinRouter
 from router.groups import router as groupsRouter
 from router.categories import router as categoriesRouter
 from router.reviews import router as reviewsRouter
+from router.members import router as membersRouter
+from router.management import router as managementRouter
 sys.dont_write_bytecode = True
 
 
@@ -39,6 +41,8 @@ app.include_router(signinRouter)
 app.include_router(groupsRouter)
 app.include_router(categoriesRouter)
 app.include_router(reviewsRouter)
+app.include_router(membersRouter)
+app.include_router(managementRouter)
 
 
 def main():

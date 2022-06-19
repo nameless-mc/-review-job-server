@@ -41,8 +41,8 @@ GET /api/groups/{group_id}/members/{user_id}
 
 | param                   | type   | description |
 | ----------------------- | ------ | ----------- |
-| id                      | number | グループ ID |
-| name                    | string | グループ名  |
+| user_id                 | number | ユーザー ID |
+| user_name               | string | ユーザー名  |
 | review_counts           | number | 投稿件数    |
 | reviews[].id            | number | レビュー ID |
 | reviews[].name          | string | 店舗名      |
@@ -53,8 +53,8 @@ GET /api/groups/{group_id}/members/{user_id}
 
 ```javascript
 {
-    "id": number,
-    "name": string,
+    "user_id": number,
+    "user_name": string,
     "review_counts": number,
     "reviews": [
         {
