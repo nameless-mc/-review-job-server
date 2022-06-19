@@ -1,9 +1,21 @@
+from typing import Union
 from fastapi import APIRouter, Depends
 from db import get_db
 from sqlalchemy.orm import Session
 from model import Group, Join, User, Review, Category
+from typing import Union
+from db import get_db
+from model import User
+from utils.signin_manager import get_user
+from fastapi import APIRouter, Cookie, Depends
+from sqlalchemy.orm import Session
 
 router = APIRouter()
+
+
+@router.get("/management/check_session")
+async def check_session(token: Union[str, None] = Cookie(None), id: Union[str, None] = Cookie(None), db: Session = Depends(get_db)):
+    return {"token": token, "id": id, "is_signin": get_user(token, id, db) is not None}
 
 
 @router.get("/management/users")

@@ -1,10 +1,9 @@
-from typing import Union
 from fastapi.responses import JSONResponse
 from fastapi import APIRouter, Cookie, Depends, Response
 from pydantic import BaseModel
 from db import get_db, idgen
 from model import User
-from utils.signin_manager import check_password, hash, get_user
+from utils.signin_manager import check_password, hash
 from sqlalchemy.orm import Session
 from utils.error import invalidParameterError
 
@@ -59,8 +58,3 @@ async def signup(res: Response, data: SignupSchema, db: Session = Depends(get_db
     db.commit()
     res.set_cookie("token", password, samesite="none", secure=True)
     res.set_cookie("id", id, samesite="none", secure=True)
-
-
-@router.get("/api/check_session")
-async def check_session(token: Union[str, None] = Cookie(None), id: Union[str, None] = Cookie(None), db: Session = Depends(get_db)):
-    return {"token": token, "id": id, "is_signin": get_user(token, id, db) is not None}
